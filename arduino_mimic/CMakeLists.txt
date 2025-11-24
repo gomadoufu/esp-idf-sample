@@ -1,17 +1,9 @@
-# The following five lines of boilerplate have to be in your project's
-# CMakeLists in this exact order for cmake to work correctly
+
 cmake_minimum_required(VERSION 3.16)
-set(IDF_TOOLCHAIN clang)
+
+# cbor特有の警告を抑制
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-builtin-macro-redefined")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-builtin-macro-redefined")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(arduino_mimic)
-
-if(EXISTS "${CMAKE_SOURCE_DIR}/fix_compile_commands.py")
-  add_custom_target(
-      fix_clangd ALL
-      COMMAND ${CMAKE_COMMAND} -E echo "Running fix_compile_commands.py..."
-      COMMAND ${CMAKE_COMMAND} -E env python3 ${CMAKE_SOURCE_DIR}/fix_compile_commands.py
-      COMMENT "Cleaning compile_commands.json for clangd"
-      VERBATIM
-  )
-endif()

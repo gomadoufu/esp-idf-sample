@@ -1,2 +1,4 @@
-idf_component_register(SRCS "arduino_mimic.cpp"
+file(GLOB_RECURSE SOURCES "*.cpp" "*.c" "*.h" "*.hpp")
+
+idf_component_register(SRCS ${SOURCES}
                     INCLUDE_DIRS ".")

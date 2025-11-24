@@ -3,6 +3,6 @@
 cmake_minimum_required(VERSION 3.16)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(my_project)
+project(xtask_create)
 
 set(IDF_TOOLCHAIN clang)

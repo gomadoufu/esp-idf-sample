@@ -10,10 +10,20 @@ ESP-IDFの機能をすぐに試せるコード集。とりあえず動く\\
 4. ~idf.py set-target ボード名(esp|esp32c3|esp32c6|...)~
 5. ~idf.py build~
 6. ~idf.py -p ESPのポート番号 flash monitor~
-
+7. monitorは Ctrl+]で終了
+        
 ** 新しくESP-IDFプロジェクトを作りたい時
 1. 任意の場所で、esp-idfのpython環境をactivate
 2. ~idf.py create-project プロジェクト名~
+
+** 設定を書き換えたい時
+2通りの方法があります。
+1. ~idf.py menuconfig~
+2. sdkconfigを直接書き換える
+
+~2~ の方法を行った場合、ビルド手順は以下になります
+~idf.py reconfigure~ → ~idf.py build~\
+設定を適用する(cmakeでconfigureする)ために、 ~idf.py reconfigure~ を実行する必要があります。
 
 ** プログラムを書き込めなかったり、なんかビルドが通らなくて困った時
 以下の対処法を試してみましょう
@@ -23,11 +33,7 @@ ESP-IDFの機能をすぐに試せるコード集。とりあえず動く\\
 - buildディレクトリを削除
 - ESP32のBOOT modeを操作 (BOOTボタンを押してからRESETボタンを押すなど)
 - AIに泣きつく
-** fix_compile_commands.pyについて
-clang環境でいくつかエラーが出たので、以下のサイトを参考に、プロジェクトルートにPythonファイルを追加 & CMakeListsを変更しています\\
-https://docs.espressif.com/projects/espressif-ide/en/latest/additionalfeatures/clangd_cdt_support.html
 
 ** 参考にしたサイト
 - 豆蔵デベロッパーサイト https://developer.mamezou-tech.com/blogs/2025/05/03/esp-idf-vsc-extension-2/ ,\\ https://developer.mamezou-tech.com/blogs/2025/05/06/esp-idf-vsc-extension-3/
 - Lang-shipさん ESP32のFreeRTOS入門 1~9\\ https://lang-ship.com/blog/work/esp32-freertos-l01-about/
-

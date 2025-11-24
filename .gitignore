@@ -1,7 +1,7 @@
 build/
 .projectile-cache.eld
 .cache/
-managed-components/
+managed_components/
 
 ### Created by https://www.gitignore.io
 ### C ###
