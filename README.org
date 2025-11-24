@@ -1,0 +1,33 @@
+* ESP-IDFおためしコード集
+
+ESP-IDFの機能をすぐに試せるコード集。とりあえず動く\\
+省略したり関数にまとめたりできる箇所がたくさんありますが、あえてそのままにしてます。
+
+** 使い方
+1. esp-idfをインストール。 ~./install.sh~ の際に、ボード名を指定するのを忘れずに
+2. このリポジトリを開き、作業シェルでesp-idfのpython環境をactivate
+3. ~cd 試したいプロジェクト~
+4. ~idf.py set-target ボード名(esp|esp32c3|esp32c6|...)~
+5. ~idf.py build~
+6. ~idf.py -p ESPのポート番号 flash monitor~
+
+** 新しくESP-IDFプロジェクトを作りたい時
+1. 任意の場所で、esp-idfのpython環境をactivate
+2. ~idf.py create-project プロジェクト名~
+
+** プログラムを書き込めなかったり、なんかビルドが通らなくて困った時
+以下の対処法を試してみましょう
+- ~idf.py clean~
+- ~idf.py fullclean~
+- ~idf.py erase-flash~
+- buildディレクトリを削除
+- ESP32のBOOT modeを操作 (BOOTボタンを押してからRESETボタンを押すなど)
+- AIに泣きつく
+** fix_compile_commands.pyについて
+clang環境でいくつかエラーが出たので、以下のサイトを参考に、プロジェクトルートにPythonファイルを追加 & CMakeListsを変更しています\\
+https://docs.espressif.com/projects/espressif-ide/en/latest/additionalfeatures/clangd_cdt_support.html
+
+** 参考にしたサイト
+- 豆蔵デベロッパーサイト https://developer.mamezou-tech.com/blogs/2025/05/03/esp-idf-vsc-extension-2/ ,\\ https://developer.mamezou-tech.com/blogs/2025/05/06/esp-idf-vsc-extension-3/
+- Lang-shipさん ESP32のFreeRTOS入門 1~9\\ https://lang-ship.com/blog/work/esp32-freertos-l01-about/
+
