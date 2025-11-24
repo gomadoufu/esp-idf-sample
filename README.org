@@ -38,7 +38,7 @@ ESP-IDFの機能をすぐに試せるコード集。とりあえず動く
 
 
 ** fix_compile_commands.pyについて
-arduino_mimicプロジェクト下でエラーが出たので、以下のサイトを参考に、プロジェクトルートにPythonファイルを追加 & CMakeListsを変更しています\\
+arduino_likeプロジェクト下でエラーが出たので、以下のサイトを参考に、プロジェクトルートにPythonファイルを追加 & CMakeListsを変更しています\\
 https://docs.espressif.com/projects/espressif-ide/en/latest/additionalfeatures/clangd_cdt_support.html#how-to-fix-unknown-argument-error-when-navigating-to-the-esp-idf-components
 
 

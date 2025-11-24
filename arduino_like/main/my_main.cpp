@@ -1,6 +1,6 @@
 #include "Arduino.h"
 
-namespace arduino_mimic {
+namespace arduino_like {
 void setup() {
   // あなたのsetupコード
   Serial.begin(115200);
